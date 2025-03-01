@@ -17,4 +17,4 @@ SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 8. ls -l *.wic*
 9. ls -l /dev/sda
 10. gparted &
-11. sudo dd if=rpi-test-image-raspberrypi3.rootfs.wic of=dev/sdb status=progress bs=4M
+11. sudo dd if=rpi-test-image-raspberrypi3.rootfs.wic of=/dev/mmcblk0 status=progress bs=4M

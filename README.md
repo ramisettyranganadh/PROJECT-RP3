@@ -1,6 +1,8 @@
 
 # PROJECT27-REPOSITORY
 
+https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html
+
 1. source oe-init-build-env
 2. vi conf/bblayers.conf
    Add Layer

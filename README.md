@@ -7,13 +7,15 @@ Setup: https://www.youtube.com/watch?v=VH4y-wBOCPk
 
 SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 
-# DOWNLOAD SOURCE CODE POKY AND META-RASPBERRYPI
+# DOWNLOAD YOCTO BUILD POKY
 1. git clone git://git.yoctoproject.org/poky
 2. cd poky; git checkout origin/scarthgap
+
+# DOWNLOAD LAYER RASPBERRYPI
 3. https://git.yoctoproject.org/meta-raspberrypi
 4. cd meta-raspberrypi; git checkout origin/scarthgap
 
-# COMPILE SOURCE
+# COMPILE SOURCE CODE
 5. source oe-init-build-env
 6. vi conf/bblayers.conf
    Add Layer
@@ -25,7 +27,7 @@ SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 11. bzip2 -d -f rpi-test-image-raspberrypi3.rootfs.wic.bz2
 12. ls -l *.wic*
 
-# FLASH IMAGE
+# FLASH RASPBERRYPI IMAGE
 13. ls -l /dev/sda
 14. gparted &
 15. sudo dd if=rpi-test-image-raspberrypi3.rootfs.wic of=/dev/mmcblk0 status=progress bs=4M

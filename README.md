@@ -2,6 +2,8 @@
 # PROJECT27-REPOSITORY
 
 https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html
+Setup: https://www.youtube.com/watch?v=VH4y-wBOCPk
+SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 
 1. source oe-init-build-env
 2. vi conf/bblayers.conf

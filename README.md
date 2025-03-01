@@ -20,13 +20,16 @@ SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 6. vi conf/bblayers.conf
    Add Layer (/home/ranganadh/GITHUB/PROJECT27/YoctoLinuxPI3/poky/meta-raspberrypi)
 7. vi conf/local.conf
-   Add Machine or Drivers (MACHINE ??= "raspberrypi3")
-8. sudo apparmor_parser -R /etc/apparmor.d/unprivileged_userns
-9. bitbake rpi-test-image -c cleanall
-10. bitbake rpi-test-image
-11. ls -l *.wic*
-12. bzip2 -d -f rpi-test-image-raspberrypi3.rootfs.wic.bz2
-13. ls -l *.wic*
+   Add Machine or Drivers
+   MACHINE ??= "raspberrypi3"
+   LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"
+   GPU_MEM = "16"
+9. sudo apparmor_parser -R /etc/apparmor.d/unprivileged_userns
+10. bitbake rpi-test-image -c cleanall
+11. bitbake rpi-test-image
+12. ls -l *.wic*
+13. bzip2 -d -f rpi-test-image-raspberrypi3.rootfs.wic.bz2
+14. ls -l *.wic*
 
 ## Flash RaspberryPi3 Image
 13. ls -l /dev/sda

@@ -18,3 +18,5 @@ SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 9. ls -l /dev/sda
 10. gparted &
 11. sudo dd if=rpi-test-image-raspberrypi3.rootfs.wic of=/dev/mmcblk0 status=progress bs=4M
+12. /media/ranganadh/boot
+13. vi config.txt -> enable uart=1

@@ -18,9 +18,9 @@ SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 ## Compile Source Code
 5. source oe-init-build-env
 6. vi conf/bblayers.conf
-   Add Layer
+   Add Layer (/home/ranganadh/GITHUB/PROJECT27/YoctoLinuxPI3/poky/meta-raspberrypi)
 7. vi conf/local.conf
-   Add Drivers
+   Add Machine or Drivers (MACHINE ??= "raspberrypi3")
 8. bitbake rpi-test-image -c cleanall
 9. bitbake rpi-test-image
 10. ls -l *.wic*

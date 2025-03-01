@@ -21,11 +21,12 @@ SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
    Add Layer (/home/ranganadh/GITHUB/PROJECT27/YoctoLinuxPI3/poky/meta-raspberrypi)
 7. vi conf/local.conf
    Add Machine or Drivers (MACHINE ??= "raspberrypi3")
-8. bitbake rpi-test-image -c cleanall
-9. bitbake rpi-test-image
-10. ls -l *.wic*
-11. bzip2 -d -f rpi-test-image-raspberrypi3.rootfs.wic.bz2
-12. ls -l *.wic*
+8. sudo apparmor_parser -R /etc/apparmor.d/unprivileged_userns
+9. bitbake rpi-test-image -c cleanall
+10. bitbake rpi-test-image
+11. ls -l *.wic*
+12. bzip2 -d -f rpi-test-image-raspberrypi3.rootfs.wic.bz2
+13. ls -l *.wic*
 
 ## Flash RaspberryPi3 Image
 13. ls -l /dev/sda

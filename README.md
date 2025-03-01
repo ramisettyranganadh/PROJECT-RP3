@@ -10,9 +10,9 @@ Setup: https://www.youtube.com/watch?v=VH4y-wBOCPk
 SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 
 1. git clone git://git.yoctoproject.org/poky
-2. cd poky
+2. cd poky; git checkout origin/scarthgap
 3. https://git.yoctoproject.org/meta-raspberrypi
-4. git checkout origin/scarthgap
+4. cd meta-raspberrypi; git checkout origin/scarthgap
 5. source oe-init-build-env
 6. vi conf/bblayers.conf
    Add Layer

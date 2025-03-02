@@ -12,7 +12,7 @@ SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 2. cd poky; git checkout origin/scarthgap
 
 ## Download Layer RaspberryPi
-3. https://git.yoctoproject.org/meta-raspberrypi
+3. git clone https://git.yoctoproject.org/meta-raspberrypi
 4. cd meta-raspberrypi; git checkout origin/scarthgap
 
 ## Compile Source Code

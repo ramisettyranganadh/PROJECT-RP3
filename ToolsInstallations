@@ -95,5 +95,8 @@ candump <device>
 candump vcan0
 
 -------------------------------- VCAN - VIRTUAL CAN INSTALLATION STEPS COMPLETED --------------------------------------
-
+# QT5 INSTALLATION
+sudo apt update && sudo apt full-upgrade
+sudo apt-get install qtcreator
+#REMOVE-> sudo apt purge --autoremove qtcreator
 

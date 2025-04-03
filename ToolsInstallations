@@ -96,7 +96,21 @@ candump vcan0
 
 -------------------------------- VCAN - VIRTUAL CAN INSTALLATION STEPS COMPLETED --------------------------------------
 # QT5 INSTALLATION
-sudo apt update && sudo apt full-upgrade
-sudo apt-get install qtcreator
+      sudo apt update && sudo apt full-upgrade
+      sudo apt-get install qtcreator
 #REMOVE-> sudo apt purge --autoremove qtcreator
 
+# CANNELLONI INSTALLATION
+      sudo apt update
+      sudo apt install build-essential cmake pkg-config libglib2.0-dev libusb-1.0-0-dev libsocketcan-dev libcanutils-dev
+      cd /opt
+      sudo mkdir canelloni
+      cd canelloni
+      sudo git clone https://github.com/mguentner/cannelloni.git
+      cd cannelloni
+      sudo mkdir build
+      cd build
+      sudo cmake ..
+      sudo make
+      sudo make install
+      sudo cannelloni

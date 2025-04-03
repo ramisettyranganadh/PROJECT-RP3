@@ -1,5 +1,18 @@
 -------------------------------- VCAN - VIRTUAL CAN INSTALLATION STEPS --------------------------------------
 
+# QUICK SETTINGS STARTED
+sudo modprobe vcan
+sudo lsmod | grep vcan
+sudo ip link add dev vcan0 type vcan
+sudo ip link set vcan0 mtu 16
+sudo ip link set up vcan0
+sudo ifconfig vcan0
+cannelloni -I can0 -R 192.168.0.3 -r 2000 -l 2000
+cannelloni -I vcan0 -R 192.168.0.2 -r 2000 -l 2000
+candump can0
+cansend vcan0 1FFFFFFF#112233445D556677
+# QUICK SETTINGS FINISHED
+
 #1 To bring up virtual can interface the kernel module vcan is required. Load vcan module:
 sudo modprobe vcan
 

@@ -50,6 +50,7 @@ sudo ifconfig vcan0
 # Bind virtual can adapter vcan0 to any counterpart:
 # cannelloni -I vcan0 -R <remote ip> -r <remote port> -l <local port>
 # sudo apt-get update
+# sudo apt install can-utils
 # sudo apt-get install build-essential cmake libqt5-dev libsocketcan-dev libudev-dev
 
 # For non blocking console append a & in the command above.

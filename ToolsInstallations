@@ -48,7 +48,9 @@ sudo ifconfig vcan0
 # SocketCAN
 # SocketCAN is used to tunnel CAN data over TCP/IP (e.g. ethernet). For linux based system, Cannelloni and socketcand are examples for user space tool which use SocketCAN.
 # Bind virtual can adapter vcan0 to any counterpart:
-cannelloni -I vcan0 -R <remote ip> -r <remote port> -l <local port>
+# cannelloni -I vcan0 -R <remote ip> -r <remote port> -l <local port>
+# sudo apt-get update
+# sudo apt-get install build-essential cmake libqt5-dev libsocketcan-dev libudev-dev
 
 # For non blocking console append a & in the command above.
 # Cannelloni Example

@@ -48,17 +48,17 @@ cannelloni -I vcan0 -R <remote ip> -r <remote port> -l <local port>
 # Config MACHINE 2
 # IP 192.168.0.3 Local cannelloni port 2000
 
-# MACHINE 1
+#5 MACHINE 1
 cannelloni -I can0 -R 192.168.0.3 -r 2000 -l 2000
 
-# MACHINE 2
+#6 MACHINE 2
 cannelloni -I vcan0 -R 192.168.0.2 -r 2000 -l 2000
 
-# Now you can test the functionallity with the following commands.
+#7 Now you can test the functionallity with the following commands.
 # MACHINE 1
 candump can0
 
-# MACHINE 2
+#8 MACHINE 2
 cansend vcan0 1FFFFFFF#112233445D556677
 
 You should now see the data on can0.

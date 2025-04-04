@@ -1,126 +1,17 @@
 -------------------------------- VCAN - VIRTUAL CAN INSTALLATION STEPS --------------------------------------
 
 sudo apt-get install can-utils
-sudo modprobe can
-sudo modprobe can_raw
+# sudo modprobe can
+# sudo modprobe can_raw
 sudo modprobe vcan; sudo ip link add dev vcan0 type vcan; sudo ip link set up vcan0; ip link show;
 
 # Terminal 1
 candump vcan0
 # Terminal 2
-cansend vcan0  123#DEADBEEF
-
-# QUICK SETTINGS STARTED
-sudo modprobe vcan
-sudo lsmod | grep vcan
-sudo ip link add dev vcan0 type vcan
-sudo ip link set vcan0 mtu 16
-sudo ip link set up vcan0
-sudo ifconfig vcan0
-cannelloni -I can0 -R 192.168.0.3 -r 2000 -l 2000
-cannelloni -I vcan0 -R 192.168.0.2 -r 2000 -l 2000
-candump can0
-cansend vcan0 1FFFFFFF#112233445D556677
-# QUICK SETTINGS FINISHED
-
-#1 To bring up virtual can interface the kernel module vcan is required. Load vcan module:
-sudo modprobe vcan
-
-#2 And controls whether the module is loaded successfully:
-sudo lsmod | grep vcan
-
-# Output should be similar to following:
-# vcan                   16384  0
-
-#3 Now a virtual can interface vcan0 can be created:
-sudo ip link add dev vcan0 type vcan
-sudo ip link set vcan0 mtu 16
-sudo ip link set up vcan0
-
-# To bring up CAN FD interface mtu size must increased to 72:
-sudo ip link add dev vcan0 type vcan
-sudo ip link set vcan0 mtu 72
-sudo ip link set up vcan0
-
-#4 And again control new created virtual can interface:
-sudo ifconfig vcan0
-
-# Output should be similar to following:
-# vcan0     Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
-#           UP RUNNING NOARP  MTU:16  Metric:1
-#           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-#           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-#           collisions:0 txqueuelen:1000
-#           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-
-# From this point the virtual can interface vcan0 can be used e.g. for SocketCAN.
-
-# SocketCAN
-# SocketCAN is used to tunnel CAN data over TCP/IP (e.g. ethernet). For linux based system, Cannelloni and socketcand are examples for user space tool which use SocketCAN.
-# Bind virtual can adapter vcan0 to any counterpart:
-# cannelloni -I vcan0 -R <remote ip> -r <remote port> -l <local port>
-# sudo apt-get update
-# sudo apt install can-utils
-# sudo apt-get install build-essential cmake libqt5-dev libsocketcan-dev libudev-dev
-
-# For non blocking console append a & in the command above.
-# Cannelloni Example
-# cannelloni example
-# In this example you see Machine 1 with a physical CAN-Interface (can0) and Machine 2 with a virtual CAN-Interface (vcan0). With cannelloni its now possible to link the two CAN-Interfaces together via the TCP/IP stack (UDP and SCTP). This makes it possible to read and write the physical CAN from Machine 2 as if it were directly connected to Machine 2. This is useful if you want to process the CAN-data on an external Machine.
-
-# Example use of SocketCAN between two machines.
-# Config MACHINE 1
-# IP 192.168.0.2 Local cannelloni port 2000
-# Config MACHINE 2
-# IP 192.168.0.3 Local cannelloni port 2000
-
-#5 MACHINE 1
-cannelloni -I can0 -R 192.168.0.3 -r 2000 -l 2000
-
-#6 MACHINE 2
-cannelloni -I vcan0 -R 192.168.0.2 -r 2000 -l 2000
-
-#7 Now you can test the functionallity with the following commands.
-# MACHINE 1
-candump can0
-
-#8 MACHINE 2
-cansend vcan0 1FFFFFFF#112233445D556677
-
-You should now see the data on can0.
-External Physical CAN Interface
-
-Ensure that any can participant is on can bus. For communication verification a can PC interface is recommendend. Check also that physical bus is proper terminated with 120 Ohm impedance.
-can-utils
-
-# can-utils provides severals tools to e.g. interact and monitor general can interfaces.
-# To send can frames to vcan0 command cansend can be used:
-cansend <device> <can_frame>
-# example
-cansend vcan0 5A2#11.2233.445D556677.66
-
-# To dump can frames on a can interface use command candump:
-candump <device>
-# example
-candump vcan0
+ cansend vcan0  19900207#FEED00DD02071990
 
 -------------------------------- VCAN - VIRTUAL CAN INSTALLATION STEPS COMPLETED --------------------------------------
 # QT5 INSTALLATION
       sudo apt update && sudo apt full-upgrade
       sudo apt-get install qtcreator
 #REMOVE-> sudo apt purge --autoremove qtcreator
-
-# CANNELLONI INSTALLATION
-      sudo apt update
-      sudo apt install build-essential cmake pkg-config libglib2.0-dev libusb-1.0-0-dev libsocketcan-dev libcanutils-dev
-      cd /opt
-      sudo mkdir canelloni
-      cd canelloni
-      sudo git clone https://github.com/mguentner/cannelloni.git
-      cd cannelloni
-      sudo mkdir build
-      cd build
-      sudo cmake ..
-      sudo make
-      sudo make install
-      sudo cannelloni

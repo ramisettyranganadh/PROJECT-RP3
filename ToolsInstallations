@@ -6,10 +6,13 @@ sudo apt-get install can-utils
 sudo modprobe vcan; sudo ip link add dev vcan0 type vcan; sudo ip link set up vcan0; ip link show;
 
 # Terminal 1
-candump vcan0
-# Terminal 2
 cansend vcan0  19900207#FEED00DD02071990
 cangen vcan0
+cat candump-2025-04-05_020759.log
+cat candump-2025-04-05_020759.log | canplayer
+# Terminal 2
+candump vcan0
+candump vcan0 -l
 
 -------------------------------- VCAN - VIRTUAL CAN INSTALLATION STEPS COMPLETED --------------------------------------
 # QT5 INSTALLATION

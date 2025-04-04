@@ -1,4 +1,13 @@
 -------------------------------- VCAN - VIRTUAL CAN INSTALLATION STEPS --------------------------------------
+sudo apt-get install can-utils
+sudo modprobe can
+sudo modprobe can_raw
+sudo modprobe vcan
+sudo ip link add dev vcan0 type vcan
+sudo ip link set up vcan0
+ip link show
+candump vcan0
+vcan0  123   [4]  01 AA BB 22
 
 # QUICK SETTINGS STARTED
 sudo modprobe vcan

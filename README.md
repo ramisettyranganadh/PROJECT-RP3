@@ -42,16 +42,13 @@ SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 1. ssh ranganadh@192.168.1.5 or ranganadh@raspberrypi.local
 
 ## Multiple Screens on Raspberry Pi via SSH
-1. Install screen
-sudo apt-get install screen
-2. Create a new screen session:
-screen -S my_session
-3. Detach and Reattach to a screen session:
-screen -r my_session
-4. Open multiple screen sessions:
-screen -S session1
-screen -S session2
-5. List all screen sessions:
-screen -ls
-6. Kill a screen session:
-screen -XS my_session kill
+1. sudo apt-get install screen
+2. screen -S session1
+3. screen -r session1
+4. screen -S session2
+5. screen -ls
+6. screen -XS my_session kill
+
+## Copy Files between Raspberry Pi and Main Machine
+1. scp myfile.txt ranganadh@192.168.1.5:project/
+2. scp ranganadh@192.168.1.5:myfile.txt .

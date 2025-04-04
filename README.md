@@ -37,3 +37,21 @@ SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 15. sudo dd if=rpi-test-image-raspberrypi3.rootfs.wic of=/dev/mmcblk0 status=progress bs=4M
 16. /media/ranganadh/boot
 17. vi config.txt -> enable uart=1
+
+## Remote Access Raspberry Pi
+1. ssh ranganadh@192.168.1.5 or ranganadh@raspberrypi.local
+
+## Multiple Screens on Raspberry Pi via SSH
+1. Install screen
+sudo apt-get install screen
+2. Create a new screen session:
+screen -S my_session
+3. Detach and Reattach to a screen session:
+screen -r my_session
+4. Open multiple screen sessions:
+screen -S session1
+screen -S session2
+5. List all screen sessions:
+screen -ls
+6. Kill a screen session:
+screen -XS my_session kill

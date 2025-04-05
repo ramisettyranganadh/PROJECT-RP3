@@ -35,7 +35,7 @@ SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 13. ls -l /dev/sda
 14. gparted &
 15. sudo dd if=rpi-test-image-raspberrypi3.rootfs.wic of=/dev/mmcblk0 status=progress bs=4M
-16. /media/ranganadh/boot
+16. cd /media/ranganadh/boot
 17. vi config.txt -> enable uart=1
 
 ## Remote Access Raspberry Pi

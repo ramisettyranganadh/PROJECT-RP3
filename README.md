@@ -1,5 +1,5 @@
 
-# PROJECT27-REPOSITORY
+# PROJECT27-RPI
 
 https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html
 

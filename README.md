@@ -54,4 +54,5 @@ SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 2. scp ranganadh@192.168.1.5:myfile.txt
 
 ## QT Installation on Raspberry Pi
+https://wiki.qt.io/Qtrpi
 https://github.com/neuronalmotion/qtrpi/wiki

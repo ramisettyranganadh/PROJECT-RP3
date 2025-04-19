@@ -52,3 +52,6 @@ SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 ## Copy Files between Raspberry Pi and Main Machine
 1. scp myfile.txt ranganadh@192.168.1.5:project/
 2. scp ranganadh@192.168.1.5:myfile.txt
+
+## QT Installation on Raspberry Pi
+https://github.com/neuronalmotion/qtrpi/wiki

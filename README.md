@@ -7,6 +7,8 @@ Setup: https://www.youtube.com/watch?v=VH4y-wBOCPk
 
 SSH Remote: https://www.youtube.com/watch?v=ltckiBV9FXg
 
+sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc git iputils-ping libacl1 liblz4-tool locales python3 python3-git python3-jinja2 python3-pexpect python3-pip python3-subunit socat texinfo unzip wget xz-utils zstd
+
 ## Download Yocto Build Poky
 1. git clone git://git.yoctoproject.org/poky
 2. cd poky; git checkout origin/scarthgap

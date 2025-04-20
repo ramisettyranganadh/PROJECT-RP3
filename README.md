@@ -30,7 +30,7 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
 10. bitbake -c clean openssl; bitbake openssl; bitbake -c clean sqlite3; bitbake sqlite3;
 11. sudo apparmor_parser -R /etc/apparmor.d/unprivileged_userns;bitbake rpi-test-image -c cleanall;
 12. bitbake rpi-test-image
-13. ls -l *.wic*
+13. cd tmp/deploy/images/raspberrypi3; ls -l *.wic*
 14. bzip2 -d -f rpi-test-image-raspberrypi3.rootfs.wic.bz2
 15. ls -l *.wic*
 

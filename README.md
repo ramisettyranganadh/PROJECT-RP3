@@ -28,10 +28,8 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
    GPU_MEM = "16"
 9. sudo apparmor_parser -R /etc/apparmor.d/unprivileged_userns
 10.
-# Clean and rebuild OpenSSL
 bitbake -c clean openssl
 bitbake openssl
-# Clean and rebuild SQLite3
 bitbake -c clean sqlite3
 bitbake sqlite3
 11. bitbake rpi-test-image -c cleanall

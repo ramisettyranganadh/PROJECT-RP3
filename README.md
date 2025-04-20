@@ -27,8 +27,7 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
    LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"
    GPU_MEM = "16"
 9. sudo apparmor_parser -R /etc/apparmor.d/unprivileged_userns
-10.
-bitbake -c clean openssl
+10. bitbake -c clean openssl
 bitbake openssl
 bitbake -c clean sqlite3
 bitbake sqlite3

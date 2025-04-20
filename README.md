@@ -58,9 +58,8 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
 4. Create .bbapend file in recipes-connectivity/wpa_supplicant as wpa-supplicant.bbappend then add below contents
          SYSTEMD_AUTO_ENABLE:wpa-supplicant = "enable"
          SYSTEMD_SERVICE:wpa-supplicant = "wpa_supplicant.service"
-         Add IMAGE_INSTALL_append = " wifi-config" in local.conf
 
-## Add Recipe for WIFI configuration
+## Add Recipe for SSH configuration
 5. IMAGE_INSTALL:append = " openssh"
 6. mkdir -p meta-yourlayer/recipes-connectivity/openssh/
 7. touch meta-yourlayer/recipes-connectivity/openssh/openssh_%.bbappend then add below contents

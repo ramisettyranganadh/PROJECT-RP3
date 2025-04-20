@@ -36,29 +36,30 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
 
 ## Add Recipe for WIFI configuration
 1. Add IMAGE_INSTALL_append = " wpa-supplicant" in local.conf
-2. Create wpa_supplicant.conf
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-country=<Your_Country_Code>  # e.g., US, IN, etc.
-network={
-    ssid="<Your_WiFi_SSID>"
-    psk="<Your_WiFi_Password>"
+2. Create wpa_supplicant.conf in recipes-connectivity/wifi-config/files
+         ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+         update_config=1
+         country=<Your_Country_Code>  # e.g., US, IN, etc.
+         network={
+             ssid="<Your_WiFi_SSID>"
+             psk="<Your_WiFi_Password>"
+         }
+3. Create Recipe wifi-config in recipes-connectivity/wifi-config and create wifi-config.bb then add below contents
+         DESCRIPTION = "WiFi configuration"
+         LICENSE = "CLOSED"
+         
+         SRC_URI = "file://wpa_supplicant.conf"
+         FILES_${PN} += "/etc/wpa_supplicant.conf"
+         
+         do_install() {
+             install -d ${D}/etc
+             install -m 0644 ${WORKDIR}/wpa_supplicant.conf ${D}/etc/wpa_supplicant.conf
 }
-3. Create Recipe wifi-config in recipes-connectivity/wifi-config.
-DESCRIPTION = "WiFi configuration"
-LICENSE = "CLOSED"
-
-SRC_URI = "file://wpa_supplicant.conf"
-FILES_${PN} += "/etc/wpa_supplicant.conf"
-
-do_install() {
-    install -d ${D}/etc
-    install -m 0644 ${WORKDIR}/wpa_supplicant.conf ${D}/etc/wpa_supplicant.conf
-}
-4. Add IMAGE_INSTALL_append = " wifi-config" in local.conf
-5. Create wpa_supplicant.bbappend(will run automatically with wpa_supplicant) in recipes-connectivity/wifi-config.
-       SYSTEMD_AUTO_ENABLE:wpa-supplicant = "enable"
-       SYSTEMD_SERVICE:wpa-supplicant = "wpa_supplicant.service"
+4. Create .bbapend file in recipes-connectivity/wpa_supplicant as wpa-supplicant.bbappend then add below contents
+         SYSTEMD_AUTO_ENABLE:wpa-supplicant = "enable"
+         SYSTEMD_SERVICE:wpa-supplicant = "wpa_supplicant.service"
+         Add IMAGE_INSTALL_append = " wifi-config" in local.conf
+5. bitbake rpi-test-image
 
 ## Flash RaspberryPi3 Image
 13. ls -l /dev/sda

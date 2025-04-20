@@ -54,7 +54,3 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
 ## Copy Files between Raspberry Pi and Main Machine
 1. scp myfile.txt ranganadh@192.168.1.5:project/
 2. scp ranganadh@192.168.1.5:myfile.txt
-
-## QT Installation on Raspberry Pi
-1. https://wiki.qt.io/Qtrpi
-2. https://github.com/neuronalmotion/qtrpi/wiki

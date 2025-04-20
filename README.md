@@ -79,7 +79,12 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
 14. gparted &
 15. sudo dd if=rpi-test-image-raspberrypi3.rootfs.wic of=/dev/mmcblk0 status=progress bs=4M
 16. cd /media/ranganadh/boot
-17. vi config.txt -> enable uart=1
+17. vi config.txt ->
+    enable uart=1
+    dtparam=spi=on
+    dtoverlay=spi0-1cs  # For SPI0 with 1 chip select
+    #dtoverlay=spi0-1cs,cs0_pin=8,cs0_spidev=disabled
+    sudo reboot
 
 ## Remote Access Raspberry Pi
 1. ssh ranganadh@192.168.1.5 or ranganadh@raspberrypi.local

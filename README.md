@@ -56,7 +56,7 @@ do_install() {
     install -m 0644 ${WORKDIR}/wpa_supplicant.conf ${D}/etc/wpa_supplicant.conf
 }
 4. Add IMAGE_INSTALL_append = " wifi-config" in local.conf
-5. Create wpa_supplicant.bbappend(will run automatically with wpa_supplicant) in wifi-config
+5. Create wpa_supplicant.bbappend(will run automatically with wpa_supplicant) in recipes-connectivity/wifi-config.
        SYSTEMD_AUTO_ENABLE:wpa-supplicant = "enable"
        SYSTEMD_SERVICE:wpa-supplicant = "wpa_supplicant.service"
 

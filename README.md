@@ -27,11 +27,8 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
    LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"
    GPU_MEM = "16"
 9. sudo apparmor_parser -R /etc/apparmor.d/unprivileged_userns
-10. bitbake -c clean openssl
-bitbake openssl
-bitbake -c clean sqlite3
-bitbake sqlite3; sudo apparmor_parser -R /etc/apparmor.d/unprivileged_userns
-11. bitbake rpi-test-image -c cleanall
+10. bitbake -c clean openssl; bitbake openssl; bitbake -c clean sqlite3; bitbake sqlite3;
+11. sudo apparmor_parser -R /etc/apparmor.d/unprivileged_userns;bitbake rpi-test-image -c cleanall;
 12. bitbake rpi-test-image
 13. ls -l *.wic*
 14. bzip2 -d -f rpi-test-image-raspberrypi3.rootfs.wic.bz2

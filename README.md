@@ -34,6 +34,32 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
 14. bzip2 -d -f rpi-test-image-raspberrypi3.rootfs.wic.bz2
 15. ls -l *.wic*
 
+## Add Recipe for WIFI configuration
+1. Add IMAGE_INSTALL_append = " wpa-supplicant" in local.conf
+2. Create wpa_supplicant.conf
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=<Your_Country_Code>  # e.g., US, IN, etc.
+network={
+    ssid="<Your_WiFi_SSID>"
+    psk="<Your_WiFi_Password>"
+}
+3. Create Recipe wifi-config in recipes-connectivity/wifi-config.
+DESCRIPTION = "WiFi configuration"
+LICENSE = "CLOSED"
+
+SRC_URI = "file://wpa_supplicant.conf"
+FILES_${PN} += "/etc/wpa_supplicant.conf"
+
+do_install() {
+    install -d ${D}/etc
+    install -m 0644 ${WORKDIR}/wpa_supplicant.conf ${D}/etc/wpa_supplicant.conf
+}
+4. Add IMAGE_INSTALL_append = " wifi-config" in local.conf
+5. Add IMAGE_INSTALL_append = " wpa-supplicant"
+       SYSTEMD_AUTO_ENABLE_append = " wpa_supplicant" 
+       IMAGE_INSTALL_append = " wifi-auto-start" in local.conf
+
 ## Flash RaspberryPi3 Image
 13. ls -l /dev/sda
 14. gparted &

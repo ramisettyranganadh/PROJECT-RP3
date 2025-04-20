@@ -56,9 +56,9 @@ do_install() {
     install -m 0644 ${WORKDIR}/wpa_supplicant.conf ${D}/etc/wpa_supplicant.conf
 }
 4. Add IMAGE_INSTALL_append = " wifi-config" in local.conf
-5. Add IMAGE_INSTALL_append = " wpa-supplicant"
-       SYSTEMD_AUTO_ENABLE_append = " wpa_supplicant" 
-       IMAGE_INSTALL_append = " wifi-auto-start" in local.conf
+5. Create wpa_supplicant.bbappend(will run automatically with wpa_supplicant) in wifi-config
+       SYSTEMD_AUTO_ENABLE:wpa-supplicant = "enable"
+       SYSTEMD_SERVICE:wpa-supplicant = "wpa_supplicant.service"
 
 ## Flash RaspberryPi3 Image
 13. ls -l /dev/sda

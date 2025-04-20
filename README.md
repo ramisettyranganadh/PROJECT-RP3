@@ -30,9 +30,6 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
 10. bitbake -c clean openssl; bitbake openssl; bitbake -c clean sqlite3; bitbake sqlite3;
 11. sudo apparmor_parser -R /etc/apparmor.d/unprivileged_userns;bitbake rpi-test-image -c cleanall;
 12. bitbake rpi-test-image
-13. cd tmp/deploy/images/raspberrypi3; ls -l *.wic*
-14. bzip2 -d -f rpi-test-image-raspberrypi3.rootfs.wic.bz2
-15. ls -l *.wic*
 
 ## Add Recipe for WIFI configuration
 1. Add IMAGE_INSTALL_append = " wpa-supplicant" in local.conf
@@ -69,6 +66,10 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
    EXTRA_USERS_PARAMS = "usermod -P <password> root;" in local.conf
 
 10. bitbake rpi-test-image
+
+11. cd tmp/deploy/images/raspberrypi3; ls -l *.wic*
+12. bzip2 -d -f rpi-test-image-raspberrypi3.rootfs.wic.bz2
+13. ls -l *.wic*
 
 ## Flash RaspberryPi3 Image
 13. ls -l /dev/sda

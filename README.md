@@ -65,11 +65,14 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
 9. INHERIT += "extrausers"
    EXTRA_USERS_PARAMS = "usermod -P <password> root;" in local.conf
 
-10. bitbake rpi-test-image
+## Add Recipe for LCD configuration
+10. IMAGE_INSTALL:append = " lcd-utils"
 
-11. cd tmp/deploy/images/raspberrypi3; ls -l *.wic*
-12. bzip2 -d -f rpi-test-image-raspberrypi3.rootfs.wic.bz2
-13. ls -l *.wic*
+11. bitbake rpi-test-image
+
+12. cd tmp/deploy/images/raspberrypi3; ls -l *.wic*
+13. bzip2 -d -f rpi-test-image-raspberrypi3.rootfs.wic.bz2
+14. ls -l *.wic*
 
 ## Flash RaspberryPi3 Image
 13. ls -l /dev/sda

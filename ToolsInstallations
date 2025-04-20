@@ -19,3 +19,7 @@ candump vcan0 -l
       sudo apt update && sudo apt full-upgrade
       sudo apt-get install qtcreator
 #REMOVE-> sudo apt purge --autoremove qtcreator
+
+## QT Installation on Raspberry Pi
+1. https://wiki.qt.io/Qtrpi
+2. https://github.com/neuronalmotion/qtrpi/wiki

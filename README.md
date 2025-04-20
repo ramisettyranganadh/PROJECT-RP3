@@ -59,7 +59,17 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
          SYSTEMD_AUTO_ENABLE:wpa-supplicant = "enable"
          SYSTEMD_SERVICE:wpa-supplicant = "wpa_supplicant.service"
          Add IMAGE_INSTALL_append = " wifi-config" in local.conf
-5. bitbake rpi-test-image
+
+## Add Recipe for WIFI configuration
+5. IMAGE_INSTALL:append = " openssh"
+6. mkdir -p meta-yourlayer/recipes-connectivity/openssh/
+7. touch meta-yourlayer/recipes-connectivity/openssh/openssh_%.bbappend then add below contents
+8. SYSTEMD_AUTO_ENABLE:append = " sshd"
+   SYSTEMD_SERVICE:append = " sshd.service"
+9. INHERIT += "extrausers"
+   EXTRA_USERS_PARAMS = "usermod -P <password> root;" in local.conf
+
+10. bitbake rpi-test-image
 
 ## Flash RaspberryPi3 Image
 13. ls -l /dev/sda

@@ -1,3 +1,10 @@
+-------------------------------- CAN - PHYSICAL CAN INSTALLATION STEPS --------------------------------------
+
+lsusb
+ip link
+sudo ip link set up can0 type can bitrate 250000
+candump can0
+
 -------------------------------- VCAN - VIRTUAL CAN INSTALLATION STEPS --------------------------------------
 
 sudo apt-get install can-utils

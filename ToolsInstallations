@@ -1,3 +1,25 @@
+-------------------------------- GIT HUB INSTALLATION STEPS --------------------------------------
+
+git --version
+ssh -V
+sudo apt update
+sudo apt upgrade
+sudo apt install git
+sudo apt install openssh
+git config --global user.name 'USERNAME'
+git config --global user.email 'YOUR_EMAIL@EXAMPLE.COM'
+ls -lah ~/.ssh
+ssh-keygen -t rsa -b 4096 -C "YOUR_EMAIL@EXAMPLE.COM"
+<enter and enter password>
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+sudo apt update
+sudo apt upgrade
+sudo apt install xclip
+xclip -sel clip < ~/.ssh/id_rsa.pub
+<Go to GIT Profile Settings and Add new SSH then paste key>
+ssh -T git@github.com
+
 -------------------------------- CAN - PHYSICAL CAN INSTALLATION STEPS --------------------------------------
 
 lsusb

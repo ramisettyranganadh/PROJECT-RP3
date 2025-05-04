@@ -78,8 +78,9 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
 13. ls -l /dev/sda
 14. gparted &
 15. sudo dd if=rpi-test-image-raspberrypi3.rootfs.wic of=/dev/mmcblk0 status=progress bs=4M
-16. cd /media/ranganadh/boot
-17. vi config.txt ->
+16. or sudo bmaptool copy rpi-test-image-raspberrypi3.rootfs.wic /dev/mmcblk0
+17. cd /media/ranganadh/boot
+18. vi config.txt ->
     enable uart=1
     dtparam=spi=on
     dtoverlay=spi0-1cs  # For SPI0 with 1 chip select

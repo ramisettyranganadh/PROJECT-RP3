@@ -43,7 +43,7 @@ cat candump-2025-04-05_020759.log | canplayer
 candump vcan0
 candump vcan0 -l
 
--------------------------------- VCAN - VIRTUAL CAN INSTALLATION STEPS COMPLETED --------------------------------------
+-------------------------------- VCAN - VIRTUAL CAN INSTALLATION STEPS COMPLETED ----------------------------
 # QT5 INSTALLATION
       sudo apt update && sudo apt full-upgrade
       sudo apt-get install qtcreator
@@ -52,3 +52,7 @@ candump vcan0 -l
 ## QT Installation on Raspberry Pi
 1. https://wiki.qt.io/Qtrpi
 2. https://github.com/neuronalmotion/qtrpi/wiki
+
+------------------------------------------ RASPBERRY PI DEBUG PROBE -----------------------------------------
+sudo apt install screen 
+sudo screen /dev/ttyACM0 115200

@@ -101,3 +101,5 @@ sudo apt install build-essential chrpath cpio debianutils diffstat file gawk gcc
 ## Copy Files between Raspberry Pi and Main Machine
 1. scp myfile.txt ranganadh@192.168.1.5:project/
 2. scp ranganadh@192.168.1.5:myfile.txt
+
+https://www.raspberrypi.com/documentation/computers/linux_kernel.html#building
